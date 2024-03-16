@@ -1,0 +1,11 @@
+.messages {
+  display: flex;
+}
+#left {
+ flex: 80%;
+ margin-top: 2%;
+
+}
+#right {
+ flex: 20%;
+}
