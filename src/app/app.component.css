@@ -1,5 +1,7 @@
 .messages {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   display: flex;
+  background-color: aqua;
 }
 #left {
  flex: 80%;
