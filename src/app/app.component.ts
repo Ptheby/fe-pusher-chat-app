@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from './message.service';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +26,9 @@ export class AppComponent implements OnInit {
 
   sendMessage(): void {
     this.messageService.sendMessage(this.newMessage).subscribe((message: any) => {
-      this.messages.push(message);
+      if (!this.messages.find((m: any) => m.id === message.id)) {
+        this.messages.push(message);
+      }
       this.newMessage = '';
     });
   }

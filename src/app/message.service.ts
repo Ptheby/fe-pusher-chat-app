@@ -12,7 +12,7 @@ export class MessageService {
   private channel: any;
 
   constructor(private http: HttpClient) {
-    this.pusher = new Pusher('6ed32465d0c1fff140be76a', {
+    this.pusher = new Pusher('3edc5ac3c4a39a891748', {
       cluster: 'us2'
     });
     this.channel = this.pusher.subscribe('chat');
