@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { MessageService } from './message.service';
-import { NgModel } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, FormsModule],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrl: './app.component.scss',
 })
-
 export class AppComponent implements OnInit {
   messages: any[] = [];
   newMessage: string = '';
@@ -25,11 +27,15 @@ export class AppComponent implements OnInit {
   }
 
   sendMessage(): void {
-    this.messageService.sendMessage(this.newMessage).subscribe((message: any) => {
-      if (!this.messages.find((m: any) => m.id === message.id)) {
-        this.messages.push(message);
-      }
-      this.newMessage = '';
-    });
+    this.messageService
+      .sendMessage(this.newMessage)
+      .subscribe((message: any) => {
+        if (!this.messages.find((m: any) => m.id === message.id)) {
+          this.messages.push(message);
+        }
+        this.newMessage = '';
+      });
   }
 }
+
+
